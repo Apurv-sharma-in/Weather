@@ -1,5 +1,4 @@
-<p align="center"><img src="![Animation - 1750780043023](https://github.com/user-attachments/assets/5818dd1a-8235-44c9-bda8-64f19a1f6738)
-" alt="Weather_LOGO"></p>
+<p align="center"><img src="https://github.com/Apurv-sharma-in/Weather/blob/main/01d_Sun_day.gif"></p>
 <h1 align="center" id="title" style:="color: white; ">Weather</h1>
 
 
