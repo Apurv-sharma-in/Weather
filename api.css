@@ -1,0 +1,683 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* --bgcolor: rgb(150, 189, 240);
+    --bodycolor: rgb(150, 189, 240);
+    --fontcolor: white;
+  */
+    --bgcolor: rgb(190, 229, 231);
+    --bodycolor: white;
+    --fontcolor: black;
+
+}
+@font-face {
+    font-family: "Font_api";
+    src: url(/font/Lobster-Regular.ttf);
+}
+
+body {
+    background: var(--bgcolor);
+    color: var(--fontcolor);
+    font-family: "Font_api";
+    color: rgba(41, 32, 32, 0.815);
+    letter-spacing: 0.2em;
+    line-height: 30px;
+
+
+}
+
+header {
+    margin-top: 20px;
+    text-align: center;
+    height: 80px;
+
+}
+
+.header>nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.search {
+    height: 30px;
+    width: 40%;
+    border-radius: 10px;
+    border: 1px;
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.dark {
+    display: inline-flex;
+    float: right;
+
+}
+
+label {
+    width: 63px;
+    height: 30px;
+    background-color: wheat;
+    position: relative;
+    display: block;
+    border-radius: 200px;
+    float: right;
+    margin-right: 20px;
+ 
+}
+
+label::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    border-radius: 180px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dar_mode {
+    visibility: hidden;
+}
+
+#dar_mode:checked+label {
+    background-color: #242424;
+}
+
+#dar_mode:checked+label::after {
+    left: 40px;
+    transform: translateX(-20%);
+    background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
+.main {
+    margin-top: 0;
+    min-height: 500;
+    display: grid;
+    grid-template-columns: 450px 350px;
+    grid-template-rows: 210px 210px;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.weather {
+    grid-column: 1 / 2;
+    background: rgba(253, 253, 253, 0.116);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+}
+
+.temp {
+    font-size: 2.5rem;
+    position: absolute;
+    top: 70%;
+    transform: translate(0%, -50%);
+}
+
+.cloud {
+    float: right;
+    text-align: center;
+    position: relative;
+}
+
+.cloud_text {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+    .cloud> img{
+        width: 130px;
+    }
+
+
+.right_side {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    background: rgba(253, 253, 253, 0.116);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.today_highlight {
+    gap: 10px;
+    row-gap: 20px;
+    display: grid;
+    grid-template-columns: 150px 150px;
+    grid-template-rows: 180px 180px;
+
+}
+
+
+.rain {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+
+}
+
+.uv {
+    grid-column: 2 / -3;
+    grid-row: 2 / 2;
+}
+
+.humidity {
+    grid-column: 2 / 2;
+    grid-row: 2 / -3;
+}
+
+.wind {
+    grid-column: -2 /-1;
+    grid-row: 2 /-2;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 2px;
+    
+}
+/* .wind_img{
+    width: 50%;
+    height: 100%;
+} */
+.rain,
+.uv,
+.humidity,
+.wind {
+    background: rgba(253, 253, 253, 0.116);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-content: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+
+}
+
+.rain>p,
+.uv>p,
+.humidity>p,
+.wind>p {
+    width: 100px;
+    position: absolute;
+    top: -12%;
+    left: 10%;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    padding: .1rem;
+    border-radius: 10px;
+    
+}
+
+.rain>h2{
+    align-self: flex-end;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+    line-height: 1rem;
+    text-transform: uppercase;
+}
+ 
+.uv>h2,
+.humidity>h2,
+.wind>h2{
+
+    align-self: center;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+
+}
+
+
+
+
+.bottom {
+    background: rgba(253, 253, 253, 0.116);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    position: relative;
+
+
+}
+
+.comming_days {
+    display: grid;
+    grid-template-columns: 63px 63px 63px 63px 63px 63px;
+    grid-template-rows: 180px;
+    gap: 5px;
+    padding: 10px;
+    justify-content: center;
+    text-align: center;
+    align-content: space-evenly;
+
+
+}
+
+.comming_days>div>img {
+    width: 100%;
+}
+
+.comming_days>div>p {
+    border-radius: 10px;
+    border-bottom: 2px solid black;
+
+}
+
+.bottom_heading {
+    position: absolute;
+    top: 93%;
+}
+
+.bottom_heading>h4 {
+    font-size: larger;
+    font-weight: 100;
+}
+
+.one {
+    background: rgba(253, 253, 253, 0.116);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    align-content: space-around;
+}
+.profile{
+    width: 60%;
+    margin:  0 auto;
+    text-align: center;
+    margin-top: 12px ;
+    font-size: 0.7rem;
+    background: rgba(253, 253, 253, 0.116);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    line-height: 22px;
+
+}
+a{
+    
+    font-size: 20px;
+    text-decoration: none;
+    color: currentColor;
+    margin: 20px;
+}
+a:hover{
+    color: rgb(0, 0, 0);
+}
+
+/* --- Responsive Design with Media Queries --- */
+
+/* Small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    /* Adjust header navigation for smaller screens */
+    .header > nav {
+        flex-direction: column; /* Stack search and dark mode vertically */
+        align-items: center; /* Center items horizontally */
+        gap: 15px; /* Add space between them */
+    }
+
+    /* Make the search input take more width */
+    .search {
+        width: 65%; /* Increase width to fill more space */
+        font-size: 16px; /* Reduce font size for smaller screens */
+        padding: 10px; /* Adjust padding */
+    }
+
+    /* Move dark mode toggle to be inline with others or adjust its position */
+    .dark {
+        float: right; /* Remove float */
+         margin-right: 0; /* Remove right margin */
+    }
+
+    /* Main grid layout for small screens */
+    .main {
+        /* Change to a single column layout */
+        grid-template-columns: 1fr; /* One flexible column */
+        grid-template-rows: auto auto auto; /* Rows for weather, highlights, and coming days */
+        /* Ensure content can scroll if needed, or adjust min-height */
+        min-height: auto; 
+        padding: 15px; /* Add some padding around the main section */
+    }
+
+    /* Weather section takes full width */
+    .weather {
+        grid-column: 1 / -1; /* Span full width */
+        align-items: center; /* Center content */
+        padding: 15px; /* Adjust padding */
+    }
+
+    /* Adjust positions of absolutely placed elements within weather */
+    .temp {
+        position: static; /* Remove absolute positioning to allow natural flow */
+        transform: none; /* Reset transform */
+        font-size: 2.5rem; /* Reduce font size */
+        margin-top: 10px; /* Add some top margin */
+    }
+
+    .cloud {
+        float: none; /* Remove float */
+        margin-top: 15px; /* Add margin to separate from temp */
+    }
+
+    .cloud_text {
+        position: static; /* Remove absolute positioning */
+        transform: none; /* Reset transform */
+        margin-top: 5px; /* Add margin */
+        font-size: 1.2rem; /* Reduce font size */
+    }
+
+    /* Right side (Today's Highlights) takes full width */
+    .right_side {
+        grid-column: 2 / 1; /* Span full width */
+        grid-row: 3/4; /* Allow row to adjust automatically */
+        padding: 15px; /* Adjust padding */
+    }
+
+    /* Today's Highlight grid for small screens */
+    .today_highlight {
+        /* Change to a single column layout for highlights to stack */
+        grid-template-columns: auto; /* One flexible column */
+        grid-template-rows: 100px 100px 100px 100px ; /* Rows adjust automatically fthfd sfhsafasj */
+        gap: 15px; /* Increase gap between highlight boxes */
+       
+    }
+    .rain{
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+    .uv{
+        grid-column: 1 / 2 ;
+        grid-row: 2 / 3;
+    }
+    .humidity{
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+    .wind{
+        grid-column: 1 / 2;
+        grid-row: 4 / 5;
+    }
+
+    /* Adjust highlight boxes text positioning */
+    .rain,
+    .uv,
+    .humidity,
+    .wind {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    
+    .rain > p,
+    .uv > p,
+    .humidity > p,
+    .wind > p {
+        position: absolute;
+        top: -12%;
+         left: 2%;     /* Adjust top position for better visibility */
+        font-size: 1.2rem; /* Reduce font size */
+        width: auto; /* Auto width */
+        text-align: left; /* Align text to left */
+        padding: 5px; /* Adjust padding */
+    }
+    
+
+    
+    .rain > h2,
+    .uv > h2,
+    .humidity > h2,
+    .wind > h2 {
+        font-size: 110%;
+    margin-bottom: 0;
+}
+    
+    .rain > img,
+    .uv > img,
+    .humidity > img,
+    .wind > img {
+        height: 100px;
+        width: 100px;
+        /* background-color: red; */
+    }
+    
+    /* Center the highlight values */
+    .rain h2 {
+        font-size: 1.8rem;
+        text-align: right;
+        line-height: 28px;
+    }
+    .uv h2, .humidity h2, .wind h2 {
+        text-align: center;
+        font-size: 1.8rem;
+        margin-top: 30px; /* Push content down from the label */
+    }
+
+
+    /* Bottom section (Coming Days) takes full width */
+    .bottom {
+        grid-column: 1 / 2; /* Span full width */
+        grid-row: auto; /* Allow row to adjust automatically */
+        padding: 15px; /* Adjust padding */
+    }
+
+    /* Coming days forecast grid for small screens */
+    .comming_days {
+        /* Allow cards to wrap into multiple rows */
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /* Flexible columns, min 80px */
+        grid-template-rows: auto; /* Rows adjust automatically */
+        gap: 10px; /* Adjust gap between forecast cards */
+        padding: 10px 0; /* Adjust padding */
+        overflow-x: auto; /* Allow horizontal scrolling if cards don't fit */
+        -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
+        justify-content: flex-start; /* Align cards to the start for scrolling */
+    }
+    
+    /* Ensure individual forecast cards resize correctly */
+    .one {
+        width: 100%; /* Take full available width within its grid cell */
+        min-width: 80px; /* Minimum width for the card */
+        padding: 11px ;
+    }
+
+    /* Adjust bottom heading position */
+    .bottom_heading {
+        position: absolute; /* Remove absolute positioning */
+        top: -2%;
+        left: 5%; /* Center the heading */
+        /* Add margin */
+    }
+    .profile{
+        margin-top: -2px;
+        width: 85%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Medium devices (tablets, 601px to 900px) */
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+    /* Adjust header navigation */
+    .header > nav {
+        flex-direction: row; /* Keep row direction */
+        justify-content: space-around; /* Space out items */
+        align-items: center;
+    }
+    
+    .search {
+        width: 55%; /* Slightly larger for tablets */
+        font-size: 18px;
+    }
+
+    .dark {
+        margin-right: 0;
+    }
+
+    /* Main grid layout for medium screens */
+    .main {
+        /* Allow main sections to stack, but perhaps keep two columns for highlights */
+        grid-template-columns: 1fr; /* Single column layout for the main containers */
+        grid-template-rows: auto auto auto;
+        gap: 20px; /* Adjust gap */
+        padding: 20px;
+    }
+
+    .weather, .right_side, .bottom {
+        grid-column: 1 / -1; /* All main sections span full width */
+        grid-row: auto;
+        width: 90%; /* Constrain width slightly */
+        margin: 0 auto; /* Center them */
+    }
+
+    /* Weather section */
+    .weather {
+        flex-direction: row; /* Keep content side-by-side if enough space */
+        justify-content: space-around;
+        align-items: center;
+        text-align: left;
+    }
+    
+    /* Readjust positioning for elements inside weather, making them static for flow */
+    .temp {
+        position: static;
+        transform: none;
+        font-size: 2.8rem;
+    }
+    .cloud_text {
+        position: static;
+        transform: none;
+        font-size: 1.3rem;
+    }
+
+    /* Today's Highlight grid for medium screens */
+    .today_highlight {
+        /* Keep two columns, but make them flexible */
+        grid-template-columns: 1fr 1fr; /* Two flexible columns */
+        grid-template-rows: auto auto; /* Rows adjust automatically */
+        gap: 15px; /* Adjust gap */
+    }
+    
+    /* Adjust highlight text positioning */
+    .rain > p,
+    .uv > p,
+    .humidity > p,
+    .wind > p {
+        top: 8px; /* Slightly adjust top */
+        left: 8px; /* Slightly adjust left */
+        font-size: 1.1rem; /* Adjust font size */
+        padding: .2rem;
+    }
+    .rain h2, .uv h2, .humidity h2, .wind h2 {
+        margin-top: 35px; /* Adjust margin to accommodate changed p position */
+    }
+
+    /* Coming days forecast grid for medium screens */
+    .comming_days {
+        /* Keep multiple columns, adjust minmax for flexibility */
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /* Fit more cards */
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .one {
+        min-width: 90px;
+    }
+
+    .bottom_heading {
+        position: static;
+        text-align: center;
+        margin-top: 15px;
+    }
+    .profile{
+      
+        width: 85%;
+    }
+}
+
+/* Large devices (desktops, 901px and up - your default sizes should work well here, but you can refine) */
+@media only screen and (min-width: 901px ) and (max-width: 1300px)  {
+    /* For larger screens, your initial CSS should largely apply.
+       You can add refinements here if your default looks off on very wide screens. */
+    .main {
+        /* Restore original grid settings or optimize for very wide screens */
+        grid-template-columns: 540px 540px; /* Your original fixed columns */
+        grid-template-rows: 310px 310px;
+        max-width: 850px; /* Optional: cap overall width */
+        margin: 20px auto; /* Center the main content */
+        
+    }
+    
+    /* Ensure absolute positioning works as intended when returning to larger screens */
+    .temp {
+        position: absolute;
+        top: 70%;
+        transform: translate(0%, -50%);
+        font-size: 3rem;
+    }
+
+    .cloud_text {
+        position: absolute;
+        top: 85%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.5rem;
+    }
+
+    /* Restore highlight grid */
+    .today_highlight {
+        grid-template-columns: 250px 250px;
+        grid-template-rows: 280px 280px;
+    }
+    
+    /* Restore highlight text positioning */
+    .rain > p,
+    .uv > p,
+    .humidity > p,
+    .wind > p {
+        top: -12%; /* Original top position */
+        left: 10%; /* Original left position */
+        font-size: 1.2rem;
+        padding: .1rem;
+    }
+    .rain h2, .uv h2, .humidity h2, .wind h2 {
+        margin-top: 0; /* Reset margin */
+    }
+
+    /* Restore coming days grid */
+    .comming_days {
+        grid-template-columns: 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr ;
+        grid-template-rows: 200%;
+        overflow-x: visible; /* No horizontal scroll on large screens */
+    }
+
+    .bottom_heading {
+        position: absolute;
+        top: 93%;
+        left: 50%; /* Center the heading relative to .bottom */
+        transform: translateX(-50%); /* Adjust for centering */
+    }
+    .profile{
+        width: 90%;
+    }
+}
+
+/* --- Dark Mode Enhancements (using CSS classes) --- */
+/* Instead of changing inline styles, you can toggle a class on the body */
+/* Add this to your api.css */
+body.dark-mode {
+    background-color: black;
+    color: white
+}
